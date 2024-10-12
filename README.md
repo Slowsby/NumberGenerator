@@ -1,0 +1,1 @@
+Extremely minimalist number generator
