@@ -18,6 +18,19 @@ function App() {
   };
 
   useEffect(() => {
+    const localmin = localStorage.getItem('rngmin');
+    const localmax = localStorage.getItem('rngmax');
+    if (localmin && localmax) {
+      setMin(parseInt(localmin));
+      setMax(parseInt(localmax));
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem('rngmin', min.toString());
+    localStorage.setItem('rngmax', max.toString());
+  }, [min, max]);
+
+  useEffect(() => {
     const handleKeyboard = (e: KeyboardEvent) => {
       console.log(e);
       if (keys.includes(e.code)) {
